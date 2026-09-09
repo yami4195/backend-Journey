@@ -17,6 +17,12 @@ const app = express();
         res.json({message:"Api is running"});
     });
 
+    app.get("/api/health",  (req, res)=>{
+      res.status(200).json({
+        message:"Api health is good and running on port 5000",
+      });
+    })
+
     app.use(errorHandler);
 
     
