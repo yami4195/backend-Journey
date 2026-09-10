@@ -19,5 +19,14 @@ name String
 email String @unique
 password String
 age Int?
+posts post[]
 createdAt DateTime @default(now())
+}
+
+model post {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  content String
+  authorId String @db.ObjectId
+  author user @relation(fields : [authorId], references: [id])
 }

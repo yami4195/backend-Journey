@@ -25,8 +25,4 @@ const app = express();
 
     app.use(errorHandler);
 
-    
-
-
-
 export default app;
