@@ -4,12 +4,15 @@
 import "dotenv/config";
 import { defineConfig } from "prisma/config";
 
+const mongoUri = process.env["MONGO_URI"];
+
+
 export default defineConfig({
   schema: "prisma/schema.prisma",
   migrations: {
     path: "prisma/migrations",
   },
   datasource: {
-    url: process.env["MONGO_URI"],
+    url: mongoUri,
   },
 });
