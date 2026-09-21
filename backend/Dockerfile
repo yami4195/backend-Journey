@@ -1,7 +1,7 @@
 # Base image: lightweight Node.js runtime
 FROM node:20-alpine
 
-# Set working directory inside the container
+# Set working directory "inside the container"
 WORKDIR /app
 
 # Copy only package files first (better caching — deps rebuild
@@ -15,7 +15,7 @@ RUN npm install
 COPY . .
 
 # Document which port the app listens on (informational)
-EXPOSE 3000
+EXPOSE 5000
 
 # Command that runs when the container starts
-CMD ["node", "server.js"]
+CMD ["npx", "ts-node", "src/server.ts"]
